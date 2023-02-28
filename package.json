@@ -1,5 +1,5 @@
 {
-  "name": "sample-extension",
+  "name": "clear-history",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,8 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-radio-group": "^1.1.1",
+    "clsx": "^1.2.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwindcss-radix": "^2.8.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
