@@ -13,7 +13,7 @@ const RadioGroup = () => {
 
   return (
     <form>
-      <legend className="text-sm font-medium leading-4 text-gray-900 dark:text-gray-100">
+      <legend className="font-medium text-gray-900 dark:text-gray-100">
         Select duration to clear:
       </legend>
       <RadioGroupPrimitive.Root
@@ -31,8 +31,8 @@ const RadioGroup = () => {
                   'peer relative w-4 h-4 rounded-full',
                   // Setting the background in dark properly requires a workaround (see css/tailwind.css)
                   'border border-transparent text-white',
-                  'radix-state-checked:bg-blue-600',
-                  'radix-state-unchecked:bg-gray-100 dark:radix-state-unchecked:bg-neutral-900',
+                  'radix-state-checked:bg-blue-500',
+                  'radix-state-unchecked:bg-gray-300 dark:radix-state-unchecked:bg-neutral-900',
                   'focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-800'
                 )}
               >
@@ -42,7 +42,7 @@ const RadioGroup = () => {
               </RadioGroupPrimitive.Item>
               <label
                 htmlFor={duration.id}
-                className="ml-2 block text-sm font-medium text-gray-700 dark:text-gray-300"
+                className="ml-3 block text-sm font-medium text-neutral-700 dark:text-neutral-300"
               >
                 {duration.title}
               </label>
