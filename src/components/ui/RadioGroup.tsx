@@ -2,24 +2,22 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import { clsx } from 'clsx'
 import { useState } from 'react'
 
-const durations = [
-  { id: '30min', title: 'Last 30 minutes' },
-  { id: '24hrs', title: 'Last 24 hours' },
-  { id: 'alltime', title: 'All time' },
-]
+type RadioGroupProps = {
+  setDurationOption: React.Dispatch<React.SetStateAction<string>>
+  durations: {
+    id: string
+    title: string
+  }[]
+}
 
-const RadioGroup = () => {
-  const [value, setValue] = useState(durations[0].title)
-
+const RadioGroup = ({ setDurationOption, durations }: RadioGroupProps) => {
   return (
     <form>
-      <legend className="font-medium text-gray-900 dark:text-gray-100">
-        Select duration to clear:
-      </legend>
+      <legend className="font-medium">Select duration to clear:</legend>
       <RadioGroupPrimitive.Root
-        aria-label="Pokemon starters"
-        defaultValue={'Bulbasaur'}
-        onValueChange={setValue}
+        aria-label="Duration"
+        defaultValue={'Last 60 minutes'}
+        onValueChange={setDurationOption}
       >
         <div className="mt-3 space-y-3">
           {durations.map((duration) => (
@@ -29,7 +27,6 @@ const RadioGroup = () => {
                 value={duration.title}
                 className={clsx(
                   'peer relative w-4 h-4 rounded-full',
-                  // Setting the background in dark properly requires a workaround (see css/tailwind.css)
                   'border border-transparent text-white',
                   'radix-state-checked:bg-blue-500',
                   'radix-state-unchecked:bg-gray-300 dark:radix-state-unchecked:bg-neutral-900',
