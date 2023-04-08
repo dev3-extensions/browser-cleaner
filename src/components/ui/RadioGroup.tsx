@@ -28,8 +28,7 @@ const RadioGroup = ({ setDurationOption, durations }: RadioGroupProps) => {
                 className={clsx(
                   'peer relative w-4 h-4 rounded-full',
                   'border border-transparent text-white',
-                  'radix-state-checked:bg-blue-500',
-                  'radix-state-unchecked:bg-gray-300 dark:radix-state-unchecked:bg-neutral-900',
+                  'radix-state-checked:bg-blue-500 radix-state-unchecked:bg-gray-300 dark:radix-state-unchecked:bg-neutral-900',
                   'focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-800'
                 )}
               >
