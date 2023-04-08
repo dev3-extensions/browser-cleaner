@@ -1,4 +1,5 @@
 import { ArrowLeft } from 'lucide-react'
+import { Link } from 'react-chrome-extension-router'
 import App from './App'
 import { Checkbox } from './components/ui/Checkbox'
 

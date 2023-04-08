@@ -1,5 +1,8 @@
 import clsx from 'clsx'
+import { Settings } from 'lucide-react'
 import { useState } from 'react'
+import { Link } from 'react-chrome-extension-router'
+import Options from './Options'
 import RadioGroup from './components/ui/RadioGroup'
 import { deleteAllTime, deleteOneDay, deleteOneHour } from './function'
 
@@ -40,16 +43,27 @@ function App() {
         <p className="font-semibold text-sm italic">
           Warning! This will permanently clear your browser history
         </p>
-        <button
-          type="button"
-          onClick={() => handleDurationChange}
-          className={clsx(
-            'bg-red-500 hover:bg-red-600 active:bg-red-700 text-white font-bold py-2 px-4 rounded',
-            'focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-red-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-200 dark:focus-visible:ring-offset-gray-800'
-          )}
-        >
-          Begone history
-        </button>
+        <div className="flex gap-4">
+          <Link
+            component={Options}
+            className={clsx(
+              'bg-neutral-500 flex flex-col items-center hover:bg-neutral-600 active:bg-neutral-700 text-white py-2 px-4 rounded',
+              'focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-neutral-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-200 dark:focus-visible:ring-offset-gray-800'
+            )}
+          >
+            <Settings />
+          </Link>
+          <button
+            type="button"
+            onClick={() => handleDurationChange}
+            className={clsx(
+              'bg-red-500 w-full hover:bg-red-600 active:bg-red-700 text-white font-bold py-2 px-4 rounded',
+              'focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-red-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-200 dark:focus-visible:ring-offset-gray-800'
+            )}
+          >
+            Clear Data
+          </button>
+        </div>
       </div>
     </main>
   )
