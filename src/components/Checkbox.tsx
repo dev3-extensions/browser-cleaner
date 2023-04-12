@@ -2,11 +2,11 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import { clsx } from 'clsx'
 import { Check } from 'lucide-react'
-import React from 'react'
 
 interface CheckboxProps {
   text: string
-  defaultState: boolean
+  defaultState?: boolean
+  onChange?: (isChecked: boolean) => void
 }
 
 const Checkbox = (props: CheckboxProps) => {
@@ -15,6 +15,11 @@ const Checkbox = (props: CheckboxProps) => {
       <CheckboxPrimitive.Root
         id={'id' + props.text}
         defaultChecked={props.defaultState}
+        onCheckedChange={(checked: boolean) => {
+          if (props.onChange) {
+            props.onChange(checked)
+          }
+        }}
         className={clsx(
           'flex h-5 w-5 items-center justify-center rounded',
           'radix-state-checked:bg-blue-500 radix-state-unchecked:bg-gray-300 dark:radix-state-unchecked:bg-neutral-900',
@@ -28,7 +33,7 @@ const Checkbox = (props: CheckboxProps) => {
 
       <LabelPrimitive.Label
         htmlFor={'id' + props.text}
-        className="ml-3 select-none text-sm font-medium text-gray-900 dark:text-gray-100"
+        className="ml-3 select-none text-sm font-medium text-gray-900 dark:text-gray-100 cursor-pointer"
       >
         {props.text}
       </LabelPrimitive.Label>

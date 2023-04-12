@@ -1,3 +1,5 @@
+import type { SelectedOptionsFull } from '../pages/AdvancedOptions'
+
 // Variable declartions
 const Hour = 1000 * 60 * 60 //1000 milliseconds (1sec) * 60 (60sec) * 60 (60min) - hour calculation
 
@@ -36,4 +38,14 @@ const deleteAllTime = () => {
   chrome.history.deleteAll(successfulDelete)
 }
 
-export { deleteOneHour, deleteOneDay, deleteAllTime, successfulDelete }
+const deleteAdvancedOptions = (selectedOptions: SelectedOptionsFull) => {
+  chrome.browsingData.remove(
+    {
+      since: OneHour,
+    },
+    selectedOptions
+  )
+}
+
+export { deleteOneHour, deleteOneDay, deleteAllTime, successfulDelete, deleteAdvancedOptions }
+

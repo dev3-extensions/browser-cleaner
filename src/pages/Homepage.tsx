@@ -2,9 +2,9 @@ import clsx from 'clsx'
 import { Settings } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-chrome-extension-router'
-import Options from './Options'
-import RadioGroup from './components/ui/RadioGroup'
-import { deleteAllTime, deleteOneDay, deleteOneHour } from './function'
+import { deleteAllTime, deleteOneDay, deleteOneHour } from '../backend/Functions'
+import RadioGroup from '../components/RadioGroup'
+import Options from './AdvancedOptions'
 
 const durations = [
   { id: '1hr', title: 'Last 60 minutes' },
