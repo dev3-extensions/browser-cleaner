@@ -87,7 +87,7 @@ export const SettingsPage = () => {
             <ArrowLeft />
           </Link>
           <button
-            className="w-full rounded bg-gradient-to-tr from-blue-500 to-blue-600 px-4 py-2 font-semibold text-white hover:from-blue-600 hover:to-blue-700 active:from-blue-700 active:to-blue-800"
+            className="w-full rounded bg-gradient-to-tr from-blue-500 to-violet-500 px-4 py-2 font-semibold text-white hover:from-blue-600 hover:to-violet-600 active:from-blue-700 active:to-violet-700"
             onClick={() => deleteAdvancedOptions(selectedOptions)}
           >
             Apply Changes
