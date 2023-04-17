@@ -2,9 +2,9 @@ import clsx from 'clsx'
 import { Settings } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-chrome-extension-router'
-import { deleteAllTime, deleteOneDay, deleteOneHour } from '../backend/Functions'
 import RadioGroup from '../components/RadioGroup'
-import Options from './AdvancedOptions'
+import { deleteAllTime, deleteOneDay, deleteOneHour } from '../utils/ChromeUtilities'
+import { SettingsPage } from './SettingsPage'
 
 const durations = [
   { id: '1hr', title: 'Last 60 minutes' },
@@ -12,12 +12,12 @@ const durations = [
   { id: 'alltime', title: 'All time' },
 ]
 
-function App() {
+export const MainPage = () => {
   // State for the duration option
   const [durationOption, setDurationOption] = useState(durations[0].title)
 
   // Function to handle the duration option change
-  function handleDurationChange() {
+  const handleDurationChange = () => {
     switch (durationOption) {
       case durations[0].title:
         deleteOneHour()
@@ -45,7 +45,7 @@ function App() {
         </p>
         <div className="flex gap-4">
           <Link
-            component={Options}
+            component={SettingsPage}
             className={clsx(
               'bg-neutral-500 flex flex-col items-center hover:bg-neutral-600 active:bg-neutral-700 text-white py-2 px-4 rounded',
               'focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-neutral-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-200 dark:focus-visible:ring-offset-gray-800'
@@ -68,5 +68,3 @@ function App() {
     </main>
   )
 }
-
-export default App
