@@ -5,8 +5,8 @@ import { Check } from 'lucide-react'
 
 interface CheckboxProps {
   text: string
-  defaultState?: boolean
-  onChange?: (isChecked: boolean) => void
+  defaultState: boolean
+  onChange: (isChecked: boolean) => void
 }
 
 const Checkbox = (props: CheckboxProps) => {
@@ -22,7 +22,7 @@ const Checkbox = (props: CheckboxProps) => {
         }}
         className={clsx(
           'flex h-5 w-5 items-center justify-center rounded',
-          'radix-state-checked:bg-blue-500 radix-state-unchecked:bg-gray-300 dark:radix-state-unchecked:bg-neutral-900',
+          'radix-state-checked:bg-blue-500 radix-state-unchecked:bg-gray-300 hover:radix-state-unchecked:bg-gray-400 dark:radix-state-unchecked:bg-neutral-900 dark:hover:radix-state-unchecked:bg-neutral-900/50',
           'focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75'
         )}
       >
@@ -33,7 +33,7 @@ const Checkbox = (props: CheckboxProps) => {
 
       <LabelPrimitive.Label
         htmlFor={'id' + props.text}
-        className="ml-3 select-none text-sm font-medium text-gray-900 dark:text-gray-100 cursor-pointer"
+        className="ml-3 cursor-pointer select-none text-sm font-medium text-gray-900 dark:text-gray-100"
       >
         {props.text}
       </LabelPrimitive.Label>
