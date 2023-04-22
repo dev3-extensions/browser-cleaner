@@ -1,3 +1,5 @@
+import type { SelectedOptions } from '../pages/SettingsPage'
+
 // Variable declartions
 const Hour = 1000 * 60 * 60 //1000 milliseconds (1sec) * 60 (60sec) * 60 (60min) - hour calculation
 
@@ -5,12 +7,12 @@ const OneHour = new Date().getTime() - Hour // 1 hour - used in chrome.history.d
 const OneDay = new Date().getTime() - Hour * 24 // 1 day - used in chrome.history.deleteRange method
 
 // Confirms that the history has been sucessfully deleted
-const successfulDelete = () => {
+export const successfulDelete = () => {
   console.log('Task Successful')
 }
 
 // Utilizes the chrome.history API and deleteRange method to delete search history from past hour
-const deleteOneHour = () => {
+export const deleteOneHour = () => {
   chrome.history.deleteRange(
     {
       startTime: OneHour,
@@ -21,7 +23,7 @@ const deleteOneHour = () => {
 }
 
 // Utilizes the chrome.history API and deleteRange method to delete search history from past day
-const deleteOneDay = () => {
+export const deleteOneDay = () => {
   chrome.history.deleteRange(
     {
       startTime: OneDay,
@@ -32,8 +34,16 @@ const deleteOneDay = () => {
 }
 
 // Utilizes the chrome.history API and deleteAll method to delete all search history
-const deleteAllTime = () => {
+export const deleteAllTime = () => {
   chrome.history.deleteAll(successfulDelete)
 }
 
-export { deleteOneHour, deleteOneDay, deleteAllTime, successfulDelete }
+// Utilizes the chrome.browsingData API and remove method to delete all browser data
+export const deleteAdvancedOptions = (selectedOptions: SelectedOptions) => {
+  chrome.browsingData.remove(
+    {
+      since: 0,
+    },
+    selectedOptions
+  )
+}
